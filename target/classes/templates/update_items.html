@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<form action="updateOne" method="post">
+    <table>
+        <tr >
+            <td><input th:value="${items.id}" name="id" type="hidden"/></td>
+            <td><input th:value="${items.name}" name="name" /></td>
+            <td><input th:value="${items.price}" name="price" type="number"/></td>
+            <td><input th:value="${items.detail}" name="detail"/></td>
+            <td><input th:value="${items.pic}" name="pic"/></td>
+            <td><input th:value="${items.createtime}" name="createtime" /></td>
+        </tr>
+    </table>
+    <button type="submit" >提交</button>
+</form>
+</div>
+</body>
+</html>

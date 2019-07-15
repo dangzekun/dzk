@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>展示</title>
+
+</head>
+<body>
+<form method="post" action="show">
+    <table>
+        <tr>
+            <td>名称</td>
+            <td><input name="name"/></td>
+            <td>
+                <button type="submit">精确搜素</button>
+            </td>
+        </tr>
+        <hr/><br/>
+        <tr th:each="all:${all}">
+            <td th:text="${all.id}"></td>
+            <td th:text="${all.name}"></td>
+            <td th:text="${all.price}"></td>
+            <td th:text="${all.detail}"></td>
+            <td th:text="${all.pic}"></td>
+            <td th:text="${all.createtime}"></td>
+            <td><a th:href="@{loadById(id=${all.id})}">修改</a></td>
+            <td><a th:href="@{deleteItems(id=${all.id})}">删除</a></td>
+            <td><a th:href="@{add}">新增</a></td>
+        </tr>
+    </table>
+</form>
+<form action="/show" method="post">
+    <table>
+    <tr>
+        <td>介绍</td>
+        <td><input name="detail"/></td>
+        <td>
+            <button type="submit">模糊搜素</button>
+        </td>
+    </tr>
+    <tr th:each="all:${likeByDetail}">
+        <td th:text="${all.id}"></td>
+        <td th:text="${all.name}"></td>
+        <td th:text="${all.price}"></td>
+        <td th:text="${all.detail}"></td>
+        <td th:text="${all.pic}"></td>
+        <td th:text="${all.createtime}"></td>
+        <td><a th:href="@{loadById(id=${all.id})}">修改</a></td>
+        <td><a th:href="@{deleteItems(id=${all.id})}">删除</a></td>
+        <td><a th:href="@{add}">新增</a></td>
+    </tr>
+    </table>
+</form>
+</body>
+</html>
